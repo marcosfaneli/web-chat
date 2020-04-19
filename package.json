@@ -20,8 +20,11 @@
   "author": "Krunal Lathiya",
   "license": "ISC",
   "dependencies": {
+    "babel-node": "0.0.1-security",
     "body-parser": "^1.18.2",
-    "express": "^4.16.2",
+    "celebrate": "^12.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
     "socket.io": "^2.0.4"
   }
 }
