@@ -1,0 +1,44 @@
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.msg-me{
+    background-color: rgb(208, 222, 243);
+    border: 1px solid #4f7396;
+    margin: 4px 4px 4px 4px;
+    padding: 4px 4px 4px 4px;
+    border-radius: 3px;
+}
+
+.msg-other{
+    text-align: right;
+    background-color: rgb(198, 233, 200);
+    border: 1px solid #255025;
+    margin: 4px 4px 4px 4px;
+    padding: 4px 4px 4px 4px;
+    border-radius: 3px;
+}
+
+.footer {
+    position: fixed; 
+    bottom: 0px; 
+    margin-right: auto; 
+    margin-left: auto; 
+    left: 0px; 
+    right: 0px; 
+    width: 100%;
+    height: 150px;
+    background-color: cornflowerblue;
+}
+
+.chatArea {
+    height: 80%;
+}
+
+.espaco-digitador{
+    height: 160px;
+}
+
+.digitador {
+    margin: 10px 10px 10px 10px;
+}

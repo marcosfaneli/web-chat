@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Chat</title>
+   <link rel="stylesheet" type="text/css" href="./style/style.css" />
+</head>
+<body>
+   <div>
+      <div>
+            <div id="chatArea" class="chatArea"></div>
+            <div class="espaco-digitador"></div>
+            <div class="footer">
+               <div class="digitador">
+                  <div>
+                     <textarea rows="5" id="txt" style="width: 98%;"></textarea>
+                  </div>
+                  <div>
+                     <button type="button" onclick="enviar()">Send</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+   <script src="./chat/chat.js"></script>
+</body>
+</html>
