@@ -11,6 +11,10 @@ io.sockets.on('connection',(socket) => {
 
    connections.push(socket)
 
+   console.log(socket.id)
+
+   io.sockets.emit('logon:id', socket.id)
+
    console.log(' %s sockets is connected', connections.length)
 
    socket.on('disconnect', () => {
@@ -18,11 +22,12 @@ io.sockets.on('connection',(socket) => {
    })
 
    socket.on('sending message', (message) => {
-      io.sockets.emit('new message', {message: message, token: socket.id})
-   })
+      const listen = `message:${message.id}`
 
-   socket.on('login', (message) => {
-      io.sockets.emit('logon', {token: socket.id});
+      console.log(`Id User: ${message.id} - Socket: ${socket.id}`)
+
+      io.sockets.emit(listen, {message: message.message, id: message.id})
+      io.sockets.emit('message:public', {message: "mensagem publica"})
    })
 })
 

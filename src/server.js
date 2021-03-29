@@ -1,6 +1,6 @@
 const server = require('./socket')
 
-const PORT = 3000
+const PORT = 5000
 
 server.listen(PORT);
 

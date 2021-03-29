@@ -2,30 +2,23 @@ let socket = io.connect();
 
 let texto = document.getElementById("txt");
 
-let token;
+let id = Math.floor(Math.random() * 100)
 
-function logar(){
-    socket.emit('login', "login");
-}
-
-logar();
-
-socket.on('new message', function(data){
-    addMsg(data, data.token == token)
+socket.on(`message:${id}`, function(data){
+    addMsg(data)
 });
 
-socket.on('logon', function(data){ 
-    if (!token){
-        token = data.token;
-    }
+socket.on(`message:public`, function(data){
+    addMsg(data)
 });
 
-function addMsg(data, myself){
+function addMsg(data){
+
     const listagem = document.getElementById('chatArea');
 
     let mensagem = document.createElement(tagName = "div");
 
-    mensagem.className = myself ? "msg-me" : "msg-other";
+    mensagem.className = data.id == id ? "msg-me" : "msg-other";
     mensagem.innerHTML = data.message;
 
     listagem.appendChild(mensagem);
@@ -34,11 +27,16 @@ function addMsg(data, myself){
 }
 
 function enviar(){
-    socket.emit('sending message', texto.value);
+
+    socket.emit('sending message', {
+        id: id, 
+        message: texto.value
+    });
     texto.value = "";
 }
 
 texto.addEventListener('keypress', function(key){
+    console.log(id)
     if (key.keyCode == 13){
         enviar();
     }
